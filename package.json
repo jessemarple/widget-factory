@@ -1,7 +1,7 @@
 {
-  "name": "ossium-dashboard",
+  "name": "widget-factory",
   "version": "1.0.0",
-  "description": "Ossium Dashboard Widget Example",
+  "description": "Widget Factory Example",
   "author": "Jesse Marple <jesse@ossium.co>",
   "private": true,
   "scripts": {

@@ -1,6 +1,6 @@
-# ossium-dashboard
+# widget-factory
 
-> Ossium Dashboard Widget Example
+> Widget Factory Example
 
 ## Build Setup
 
