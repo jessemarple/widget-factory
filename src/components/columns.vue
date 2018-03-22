@@ -5,7 +5,15 @@
         <div class="card">
           <header class="card-header">
             <p class="card-header-title">
-              <span>{{column.name}}</span>
+              <span v-if="column.factoryVisibility === 'all'">All Factories</span>
+              <span v-if="column.factoryVisibility === 'Primary'">Primary Factory</span>
+              <span v-if="column.factoryVisibility === 'Secondary'">Secondary Factory</span>
+              <span v-if="column.timeMode === 'Hours' && column.hoursAgo > 0">
+                &nbsp;- last {{column.hoursAgo}} hours
+              </span>
+              <span v-if="column.timeMode === 'Minutes' && column.minutesAgo > 0">
+                &nbsp;- last {{column.minutesAgo}} minutes
+              </span>
             </p>
             <b-dropdown class="card-header-icon" hoverable>
               <a slot="trigger">
@@ -95,10 +103,10 @@
                     <div class="content">
                       <p>
                         <strong>{{f.factory }}</strong> @ {{f.time}}
-                        <b-tooltip v-if="column.timeMode === 'Minutes'" type="is-info" :label="`${f.minutes_ago} minutes ago.`" position="is-bottom" multilined="true">
+                        <b-tooltip v-if="column.timeMode === 'Minutes'" type="is-info" :label="`${f.minutes_ago} minutes ago.`" position="is-bottom">
                           <i class="fas fa-clock"></i>
                         </b-tooltip>
-                        <b-tooltip v-if="column.timeMode === 'Hours'" type="is-info" :label="`${f.hours_ago} hours ago.`" position="is-bottom" multilined="true">
+                        <b-tooltip v-if="column.timeMode === 'Hours'" type="is-info" :label="`${f.hours_ago} hours ago.`" position="is-bottom">
                           <i class="fas fa-clock"></i>
                         </b-tooltip>
                       </p>
@@ -130,8 +138,6 @@ export default {
       factories: FactoriesData,
       columns: [
         {
-          id: 1,
-          name: 'Column 1',
           factoryVisibility: 'all',
           timeMode: 'Hours',
           hoursAgo: 0,
@@ -139,8 +145,6 @@ export default {
           showSettings: true
         },
         {
-          id: 2,
-          name: 'Column 2',
           factoryVisibility: 'all',
           timeMode: 'Hours',
           hoursAgo: 0,
@@ -173,29 +177,36 @@ export default {
       // console.log('f', f)
       if (column.factoryVisibility === 'all') {
         // all factories are visible
-        return true
+        // return true
+        return this.filterTime(f, column)
       } else {
         if (column.factoryVisibility === f.factory) {
           // this particular factory is visible
-          if (column.hoursAgo === 0 && column.minutesAgo === 0) {
-            // factory matches and time isn't an issue
+          return this.filterTime(f, column)
+        } else {
+          return false
+        }
+      }
+    },
+    filterTime (f, column) {
+      if (column.hoursAgo === 0 && column.minutesAgo === 0) {
+        // factory matches and time isn't an issue
+        return true
+      } else {
+        if (column.hoursAgo > 0 && column.minutesAgo === 0) {
+          if (f.hours_ago <= column.hoursAgo) {
             return true
           } else {
-            if (column.hoursAgo > 0 && column.minutesAgo === 0) {
-              if (f.hours_ago <= column.hoursAgo) {
-                return true
-              } else {
-                return false
-              }
-            } else if (column.hoursAgo === 0 && column.minutesAgo > 0) {
-              if (f.minutes_ago <= column.minutesAgo) {
-                return true
-              } else {
-                return false
-              }
-            } else {}
+            return false
+          }
+        } else if (column.hoursAgo === 0 && column.minutesAgo > 0) {
+          if (f.minutes_ago <= column.minutesAgo) {
+            return true
+          } else {
+            return false
           }
         } else {
+          console.log('some weird thign happened here')
           return false
         }
       }
@@ -209,7 +220,6 @@ export default {
     },
     columnFactory () {
       return {
-        name: `Column ${this.columns.length + 1}`,
         showSettings: true,
         factoryVisibility: 'all',
         timeMode: 'Hours',
