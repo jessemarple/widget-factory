@@ -29,5 +29,11 @@ export default {
       width: 200px;
       display: inline-block;
     }
+    .menu-list a{
+      border-radius: 0;
+    }
+    .router-link-exact-active{
+      border-right: 3px solid #2a70de;
+    }
   }
 </style>

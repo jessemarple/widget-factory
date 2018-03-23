@@ -1,6 +1,6 @@
 <template>
   <div>
-    <draggable v-model="columns" :options="{draggable:'.column'}">
+    <draggable v-model="columns" :options="{draggable:'.column', handle:'.drag-handle'}">
       <transition-group id="columns" class="columns">
         <div :id="column.id" v-for="(column, index) in columns" :key="column.id" class="column widget-column-container">
           <div class="card">
@@ -16,6 +16,9 @@
                   &nbsp;- last {{column.minutesAgo}} minutes
                 </span>
               </p>
+              <span class="card-header-icon drag-handle is-hidden-touch">
+                <i class="fas fa-arrows-alt-h"></i>
+              </span>
               <b-dropdown class="card-header-icon" hoverable>
                 <a slot="trigger">
                   <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -134,7 +137,6 @@ import { EventBus } from '../event-bus'
 import FactoriesData from '@/store/factoryData'
 import DefaultColumnsData from '@/store/defaultColumns'
 import draggable from 'vuedraggable'
-// import _ from 'lodash'
 
 export default {
   name: 'Columns',
