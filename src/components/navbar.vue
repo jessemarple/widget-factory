@@ -9,14 +9,14 @@
       <a class="navbar-item" href="https://jessemarple.github.io/widget-factory">
         Widget Factory
       </a>
-      <div class="mobile-column-add-button is-hidden-desktop">
+      <div class="mobile-column-add-button is-hidden-desktop" v-if="$route.name === 'Dashboard'">
         <a @click="addColumn(true)" class="button">
           <i class="fas fa-plus"></i>
         </a>
       </div>
     </div>
-    <div class="navbar-end is-hidden-touch">
-      <div class="navbar-item" v-if="$route.name === 'Dashboard'">
+    <div class="navbar-end is-hidden-touch" v-if="$route.name === 'Dashboard'">
+      <div class="navbar-item">
         <a @click="addColumn" class="button">Add Column</a>
       </div>
     </div>
