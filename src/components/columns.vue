@@ -19,7 +19,7 @@
               <span class="card-header-icon drag-handle is-hidden-touch">
                 <i class="fas fa-arrows-alt-h"></i>
               </span>
-              <b-dropdown class="card-header-icon" hoverable>
+              <b-dropdown class="card-header-icon">
                 <a slot="trigger">
                   <i class="fas fa-angle-down" aria-hidden="true"></i>
                 </a>
@@ -43,7 +43,7 @@
                   <div class="select is-fullwidth">
                     <select style="width:100%;" v-model="columns[index].factoryVisibility" placeholder="Select">
                       <option value="all" label="All"></option>
-                      <option v-for="item in factoryOptions" :key="item" :label="item" :value="item"></option>
+                      <option v-for="item in factoryOptions" :key="item" :label="item" :value="item">{{item}}</option>
                     </select>
                   </div>
                 </div>

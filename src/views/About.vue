@@ -10,7 +10,7 @@
         Once setting selection has been made, the user can choose to close the settings panel in the column by hovering over the dropdown  indicator in the column's header and selecting 'Hide Settings'. Inversely, settings can be returned by following the same pattern and clicking 'Show Settings'.
       </p>
       <p>
-        Columns can be deleted by hovering over the dropdown indicator in the column's header and selecting 'Delete'. Should the user delete all of their columns, the default column will appear on reload.
+        Columns can be deleted by clicking the dropdown indicator in the column's header and selecting 'Delete'. Should the user delete all of their columns, the default column will appear on reload.
       </p>
       <p>
         In desktop and large tablet viewports, columns can be rearranged by dragging using the column's drag handle and placing the column in the order the user desires.
