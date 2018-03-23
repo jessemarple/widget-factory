@@ -6,7 +6,7 @@
         <span></span>
         <span></span>
       </div>
-      <a class="navbar-item" href="https://jessemarple.com">
+      <a class="navbar-item" href="https://jessemarple.github.io/widget-factory">
         Widget Factory
       </a>
       <div class="mobile-column-add-button is-hidden-desktop">
