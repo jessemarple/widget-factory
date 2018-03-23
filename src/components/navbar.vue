@@ -6,11 +6,16 @@
         <span></span>
         <span></span>
       </div>
-      <a class="navbar-item" href="https://ossium.co">
+      <a class="navbar-item" href="https://jessemarple.com">
         Widget Factory
       </a>
+      <div class="mobile-column-add-button is-hidden-desktop">
+        <a @click="addColumn(true)" class="button">
+          <i class="fas fa-plus"></i>
+        </a>
+      </div>
     </div>
-    <div class="navbar-end">
+    <div class="navbar-end is-hidden-touch">
       <div class="navbar-item" v-if="$route.name === 'Dashboard'">
         <a @click="addColumn" class="button">Add Column</a>
       </div>
@@ -26,8 +31,9 @@ export default {
     toggleNavDrawer: () => {
       EventBus.$emit('toggle-nav-drawer')
     },
-    addColumn () {
-      EventBus.$emit('add-column')
+    addColumn (mobile) {
+      console.log('is mobile', mobile)
+      EventBus.$emit('add-column', mobile)
     }
   }
 }
@@ -36,10 +42,14 @@ export default {
   #navbar{
     -webkit-box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);
     box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);
-    // border: 1px solid green;
     .navbar-burger.left-burger.always-burger{
       margin-left: 0;
       display: block;
+    }
+    .mobile-column-add-button{
+      position: absolute;
+      right: 1em;
+      top: 10px;
     }
   }
 </style>

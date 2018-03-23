@@ -13,15 +13,9 @@
   </div>
 </template>
 <script>
-// import { EventBus } from '@/event-bus'
 export default {
   name: 'Drawer',
-  props: ['open'],
-  data () {
-    return {}
-  },
-  methods: {},
-  mounted () {}
+  props: ['open']
 }
 </script>
 <style lang="scss" scoped>

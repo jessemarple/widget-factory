@@ -29,7 +29,6 @@ export default {
   mounted () {
     EventBus.$on('toggle-nav-drawer', () => {
       this.drawerOpen = !this.drawerOpen
-      console.log('close the drawer')
     })
   }
 }
@@ -46,7 +45,6 @@ export default {
   display: flex;
 }
 #content{
-  // border: 1px solid red;
   width: calc(100% - 205px);
   display: inline-block;
   &.wide{

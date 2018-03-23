@@ -19,5 +19,6 @@ export default {
   #dashboard{
     padding: 1em;
     overflow-x: scroll;
+    min-width: 350px;
   }
 </style>
