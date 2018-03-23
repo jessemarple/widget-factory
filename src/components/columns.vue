@@ -260,6 +260,9 @@ export default {
   -webkit-box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);
   box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);
 }
+.columns.is-gapless>.column.widget.column-with-background{
+  padding: .5em 1em!important;
+}
 .widget{
   &.column-with-background{
     padding: .5em 1em!important;
