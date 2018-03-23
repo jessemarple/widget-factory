@@ -40,7 +40,7 @@
       </p>
       <p>
         All code, respective of their owners, is copyright 2018, Ossium, LLC.
-      </p>      
+      </p>
       <h3>About the Engineer</h3>
       <p>
         This example was developed by <a href="https://www.linkedin.com/in/jessemarple/" target="_blank">Jesse Marple</a>.
