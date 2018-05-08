@@ -218,7 +218,7 @@ export default {
         }
       }
     },
-    addColumn (mobile) {
+    addColumn () {
       let newColumn = this.columnFactory()
       this.columns.unshift(newColumn)
       this.saveColumns()

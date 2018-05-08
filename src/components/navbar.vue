@@ -20,6 +20,11 @@
         <a @click="addColumn" class="button">Add Column</a>
       </div>
     </div>
+    <div class="navbar-end is-hidden-touch" v-if="$route.name === 'About'">
+      <div class="navbar-item">
+        <a href="https://github.com/jessemarple/widget-factory" class="button">Git Repo</a>
+      </div>
+    </div>
   </nav>
 </template>
 <script>
@@ -31,9 +36,8 @@ export default {
     toggleNavDrawer: () => {
       EventBus.$emit('toggle-nav-drawer')
     },
-    addColumn (mobile) {
-      console.log('is mobile', mobile)
-      EventBus.$emit('add-column', mobile)
+    addColumn () {
+      EventBus.$emit('add-column')
     }
   }
 }
